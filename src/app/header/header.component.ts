@@ -1,5 +1,5 @@
 import { from } from 'rxjs';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector:"app-header",
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent{
     collapsed = true;
+    @Output() feature = new EventEmitter<string>();
+    onSelect(selectedFeature : string){
+        this.feature.emit(selectedFeature);
+    }
 }
