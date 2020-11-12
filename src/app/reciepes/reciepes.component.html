@@ -3,7 +3,7 @@
         <app-reciepe-list (currentReciepe) = "currentSelectedReciepe = $event"></app-reciepe-list>
     </div>
     <div class="col-md-7">
-        <app-reciepe-detail *ngIf = "currentSelectedReciepe; else infoText"></app-reciepe-detail>
+        <app-reciepe-detail *ngIf = "currentSelectedReciepe; else infoText" [selectedRecipeDetail]="currentSelectedReciepe"></app-reciepe-detail>
         <ng-template #infoText>
             <p>Please select</p>
         </ng-template>
