@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {HeaderComponent} from './header/header.component';
+import { HeaderComponent } from './header/header.component';
 import { ReciepesComponent } from './reciepes/reciepes.component';
 import { ReciepeListComponent } from './reciepes/reciepe-list/reciepe-list.component';
 import { ReciepeDetailComponent } from './reciepes/reciepe-detail/reciepe-detail.component';
