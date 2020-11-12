@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Reciepe } from '../model/reciepe.model';
 
 @Component({
@@ -12,9 +12,15 @@ export class ReciepeListComponent implements OnInit {
     new Reciepe('Parotta','this is called as Parotta','https://img-global.cpcdn.com/recipes/0aec6ae93db733e8/1200x630cq70/photo.jpg')
   ];
 
+  @Output() currentReciepe = new EventEmitter<Reciepe>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelectedReciepe(reciepe : Reciepe){
+    this.currentReciepe.emit(reciepe);
   }
 
 }
