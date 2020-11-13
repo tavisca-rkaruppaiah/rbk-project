@@ -15,7 +15,6 @@ export class ReciepesComponent implements OnInit {
   ngOnInit(): void {
     this.reciepeService.selectedReciepe.subscribe((reciepe : Reciepe)=>{
       this.currentSelectedReciepe = reciepe;
-      console.log(reciepe);
     });
   }
 

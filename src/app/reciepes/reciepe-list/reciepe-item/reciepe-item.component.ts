@@ -17,7 +17,5 @@ export class ReciepeItemComponent implements OnInit {
 
   onSelectItem(){
     this.reciepeService.selectedReciepe.emit(this.reciepe);
-    console.log(this.reciepe);
-    console.log(this.reciepeService.selectedReciepe);
   }
 }

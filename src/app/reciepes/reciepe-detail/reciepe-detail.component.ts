@@ -9,9 +9,8 @@ import { ReciepeService } from '../services/reciepe.service';
 })
 export class ReciepeDetailComponent implements OnInit {
   @Input() selectedRecipeDetail : Reciepe;
-  constructor(private reciepeService: ReciepeService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
 }
