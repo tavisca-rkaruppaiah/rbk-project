@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Reciepe } from '../model/reciepe.model';
+import { ReciepeService } from '../services/reciepe.service';
 
 @Component({
   selector: 'app-reciepe-list',
@@ -8,19 +9,11 @@ import { Reciepe } from '../model/reciepe.model';
 })
 export class ReciepeListComponent implements OnInit {
 
-  reciepes : Reciepe[] = [
-    new Reciepe('Parotta','this is called as Parotta','https://img-global.cpcdn.com/recipes/0aec6ae93db733e8/1200x630cq70/photo.jpg')
-  ];
+  reciepes : Reciepe[];
 
-  @Output() currentReciepe = new EventEmitter<Reciepe>();
-
-  constructor() { }
+  constructor(private reciepeService : ReciepeService) { }
 
   ngOnInit(): void {
+    this.reciepes = this.reciepeService.getReciepes();
   }
-
-  onSelectedReciepe(reciepe : Reciepe){
-    this.currentReciepe.emit(reciepe);
-  }
-
 }
