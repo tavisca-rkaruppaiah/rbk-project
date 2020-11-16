@@ -15,6 +15,7 @@ import { ReciepeService } from './reciepes/services/reciepe.service';
 import { ShoppingService } from './shopping-list/services/shopping.service';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { ReciepeStartComponent } from './reciepes/reciepe-start/reciepe-start.component';
+import { ReciepeEditComponent } from './reciepes/reciepe-edit/reciepe-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReciepeStartComponent } from './reciepes/reciepe-start/reciepe-start.co
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    ReciepeStartComponent
+    ReciepeStartComponent,
+    ReciepeEditComponent
   ],
   imports: [
     BrowserModule,
