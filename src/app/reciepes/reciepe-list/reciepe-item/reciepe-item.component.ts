@@ -10,6 +10,7 @@ import { ReciepeService } from '../../services/reciepe.service';
 export class ReciepeItemComponent implements OnInit {
 
   @Input() reciepe : Reciepe;
+  @Input() index : number;
   constructor(private reciepeService : ReciepeService) { }
 
   ngOnInit(): void {

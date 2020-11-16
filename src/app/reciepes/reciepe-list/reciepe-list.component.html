@@ -6,6 +6,6 @@
 <hr/>
 <div class="row">
     <div class="col-xs-12">
-        <app-reciepe-item *ngFor = "let reciepe of reciepes" [reciepe]="reciepe"></app-reciepe-item>
+        <app-reciepe-item *ngFor = "let reciepe of reciepes; let index = index" [reciepe]="reciepe" [index] = "index"></app-reciepe-item>
     </div>
 </div>

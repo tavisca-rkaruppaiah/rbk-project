@@ -1,10 +1,9 @@
-<app-header (feature) = "onClickNavbar($event)"></app-header>
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h1>Ragu Balagi Karuppaiah</h1>
-      <app-reciepes *ngIf = "selectedFeature === 'reciepe'"></app-reciepes>
-      <app-shopping-list *ngIf = "selectedFeature === 'shopping'"></app-shopping-list>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

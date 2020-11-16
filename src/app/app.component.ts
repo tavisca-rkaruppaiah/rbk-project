@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rbk-project';
-  selectedFeature : string = "reciepe";
-  onClickNavbar(feature : string){
-    this.selectedFeature = feature;
-  }
 }
