@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { KeyStore } from 'src/app/keystore';
 import { Ingredient } from 'src/app/shared/model/ingredient.model';
 import { ShoppingService } from 'src/app/shopping-list/services/shopping.service';
@@ -26,6 +27,7 @@ export class ReciepeService {
       ]
     )
   ];
+  reciepeChangedSubject = new Subject<Reciepe[]>();
   constructor(private shoppingService : ShoppingService) { }
 
   getReciepes(){
@@ -38,5 +40,24 @@ export class ReciepeService {
 
   getReciepe(id : number){
     return this.reciepes.slice()[id];
+  }
+
+  addReciepe(reciepe : Reciepe){
+    this.reciepes.push(reciepe);
+    this.notifyReciepeChanged();
+  }
+
+  updateReciepe(index : number, reciepe:Reciepe){
+    this.reciepes[index] = reciepe;
+    this.notifyReciepeChanged();
+  }
+
+  notifyReciepeChanged(){
+    this.reciepeChangedSubject.next(this.reciepes.slice());
+  }
+
+  deleteReciepe(index : number){
+    this.reciepes.splice(index, 1);
+    this.notifyReciepeChanged();
   }
 }

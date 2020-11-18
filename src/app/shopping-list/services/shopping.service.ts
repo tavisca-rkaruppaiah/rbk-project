@@ -42,7 +42,7 @@ export class ShoppingService {
   }
 
   deleteIngredient(index : number) {
-    this.ingredients.splice(index);
+    this.ingredients.splice(index, 1);
     this.emitIngredients();
   }
 }
