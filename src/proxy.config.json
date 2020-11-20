@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://rbk-project-c4172.firebaseio.com/",
+        "secure": false,
+        "logLevel":"debug"
+      }
+}
