@@ -3,3 +3,10 @@ export const KeyStore = {
     parottaImage : "https://img-global.cpcdn.com/recipes/0aec6ae93db733e8/1200x630cq70/photo.jpg",
     baseUrl:"https://fir-32edc.firebaseio.com"
 }
+
+export const FireBase = {
+    BaseUrl : "https://identitytoolkit.googleapis.com/v1/",
+    Login : "accounts:signInWithPassword?key=",
+    Register : "accounts:signUp?key=",
+    ApiKey : "AIzaSyAF8ijh-kbMzXkosrXofJRkY82F7KqakX4"
+}

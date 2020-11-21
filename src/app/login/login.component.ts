@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector : "app-login",
@@ -9,13 +10,40 @@ export class LoginComponent{
     isLoginMode = false;
     @ViewChild("loginForm") loginForm : NgForm;
 
+    constructor(private authService : AuthService){}
+
     onSwitchMode(){
         this.isLoginMode = !this.isLoginMode;
     }
 
     onSubmit(){
-        console.log(this.loginForm.value);
+        if(!this.loginForm.valid){
+            return;
+        }
+        const email = this.loginForm.value.email;
+        const password = this.loginForm.value.password;
+        if(this.isLoginMode){
+            this.onLogin(email, password);
+        }else{
+            this.onRegister(email, password);
+        }
         this.onReset();
+    }
+
+    onRegister(email:string, password:string){
+        this.authService.register(email, password).subscribe(response => {
+            console.log(response);
+        }, error => {
+            console.log(error);
+        });
+    }
+
+    onLogin(email : string, password : string){
+        this.authService.login(email, password).subscribe(response => {
+            console.log(response);
+        }, error => {
+            console.log(error);
+        });
     }
 
     onReset(){
