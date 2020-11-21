@@ -5,16 +5,19 @@ import { ReciepeStartComponent } from '../reciepes/reciepe-start/reciepe-start.c
 import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 import { ReciepeDetailComponent } from '../reciepes/reciepe-detail/reciepe-detail.component';
 import { ReciepeEditComponent } from '../reciepes/reciepe-edit/reciepe-edit.component';
+import { ReciepeResolverService } from '../reciepes/services/reciepe-resolver.service';
+import { LoginComponent } from '../login/login.component';
 
 const routes : Route[] = [
     {path : '', redirectTo:'/reciepes', pathMatch:'full'},
     {path : 'reciepes', component: ReciepesComponent, children:[
         {path:'',component:ReciepeStartComponent},
         {path:'new', component:ReciepeEditComponent},
-        {path:':id', component:ReciepeDetailComponent},
-        {path:':id/edit', component:ReciepeEditComponent}
+        {path:':id', component:ReciepeDetailComponent, resolve : [ReciepeResolverService]},
+        {path:':id/edit', component:ReciepeEditComponent, resolve : [ReciepeResolverService]}
     ]},
     {path : 'shoppings', component: ShoppingListComponent},
+    {path:'login', component:LoginComponent}
 ];
 
 @NgModule({

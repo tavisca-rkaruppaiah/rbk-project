@@ -13,4 +13,8 @@ export class HeaderComponent{
     saveReciepes(){
         this.dataStorageService.saveReciepes();
     }
+
+    getReciepes(){
+        this.dataStorageService.getReciepes().subscribe();
+    }
 }

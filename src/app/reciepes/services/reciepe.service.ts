@@ -9,7 +9,7 @@ import { Reciepe } from '../model/reciepe.model';
   providedIn: 'root'
 })
 export class ReciepeService {
-  private reciepes : Reciepe[] = [
+  private reciepes1 : Reciepe[] = [
     new Reciepe(
       'Parotta',
       'this is called as Parotta',
@@ -27,8 +27,15 @@ export class ReciepeService {
       ]
     )
   ];
+
+  private reciepes : Reciepe[] = [];
   reciepeChangedSubject = new Subject<Reciepe[]>();
   constructor(private shoppingService : ShoppingService) { }
+
+  setReciepes(reciepes : Reciepe[]){
+    this.reciepes = reciepes;
+    this.notifyReciepeChanged();
+  }
 
   getReciepes(){
     return this.reciepes.slice();

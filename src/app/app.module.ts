@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +17,7 @@ import { ShoppingService } from './shopping-list/services/shopping.service';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { ReciepeStartComponent } from './reciepes/reciepe-start/reciepe-start.component';
 import { ReciepeEditComponent } from './reciepes/reciepe-edit/reciepe-edit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReciepeEditComponent } from './reciepes/reciepe-edit/reciepe-edit.compo
     ShoppingEditComponent,
     DropdownDirective,
     ReciepeStartComponent,
-    ReciepeEditComponent
+    ReciepeEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
