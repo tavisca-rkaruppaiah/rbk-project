@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent{
     isLoginMode = false;
+    isLoading = false;
     @ViewChild("loginForm") loginForm : NgForm;
 
     constructor(private authService : AuthService){}
@@ -20,6 +21,7 @@ export class LoginComponent{
         if(!this.loginForm.valid){
             return;
         }
+        this.isLoading = true;
         const email = this.loginForm.value.email;
         const password = this.loginForm.value.password;
         if(this.isLoginMode){
@@ -33,16 +35,20 @@ export class LoginComponent{
     onRegister(email:string, password:string){
         this.authService.register(email, password).subscribe(response => {
             console.log(response);
+            this.isLoading = false;
         }, error => {
             console.log(error);
+            this.isLoading = false;
         });
     }
 
     onLogin(email : string, password : string){
         this.authService.login(email, password).subscribe(response => {
             console.log(response);
+            this.isLoading = false;
         }, error => {
             console.log(error);
+            this.isLoading = false;
         });
     }
 

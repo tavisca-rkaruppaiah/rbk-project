@@ -18,6 +18,7 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { ReciepeStartComponent } from './reciepes/reciepe-start/reciepe-start.component';
 import { ReciepeEditComponent } from './reciepes/reciepe-edit/reciepe-edit.component';
 import { LoginComponent } from './login/login.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './login/login.component';
     DropdownDirective,
     ReciepeStartComponent,
     ReciepeEditComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
