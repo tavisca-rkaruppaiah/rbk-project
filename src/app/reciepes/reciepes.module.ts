@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { ReciepeDetailComponent } from './reciepe-detail/reciepe-detail.component';
@@ -9,6 +8,7 @@ import { ReciepeEditComponent } from './reciepe-edit/reciepe-edit.component';
 import { ReciepeItemComponent } from './reciepe-list/reciepe-item/reciepe-item.component';
 import { ReciepeListComponent } from './reciepe-list/reciepe-list.component';
 import { ReciepeStartComponent } from './reciepe-start/reciepe-start.component';
+import { ReciepesRoutingModule } from './reciepes-routing.module';
 import { ReciepesComponent } from './reciepes.component';
 
 @NgModule({
@@ -23,7 +23,8 @@ import { ReciepesComponent } from './reciepes.component';
     imports:[
         RouterModule,
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ReciepesRoutingModule
     ],
     exports:[
         ReciepesComponent,
