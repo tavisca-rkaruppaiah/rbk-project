@@ -4,6 +4,7 @@ export class AuthResponse{
         public email:string, 
         public refreshToken:string, 
         public expiresIn:string, 
-        public localId	:string
+        public localId	:string,
+        public registered?:boolean
     ){}
 }

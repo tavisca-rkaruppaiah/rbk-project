@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { AuthResponse } from '../contract/auth/auth-response.model';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,6 +11,8 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent{
     isLoginMode = false;
     isLoading = false;
+    errorMessage:string = null;
+    authenticationObservable : Observable<AuthResponse>;
     @ViewChild("loginForm") loginForm : NgForm;
 
     constructor(private authService : AuthService){}
@@ -33,26 +37,26 @@ export class LoginComponent{
     }
 
     onRegister(email:string, password:string){
-        this.authService.register(email, password).subscribe(response => {
-            console.log(response);
-            this.isLoading = false;
-        }, error => {
-            console.log(error);
-            this.isLoading = false;
-        });
+        this.authenticationObservable = this.authService.register(email, password);
+        this.handleResponse();
     }
 
     onLogin(email : string, password : string){
-        this.authService.login(email, password).subscribe(response => {
-            console.log(response);
-            this.isLoading = false;
-        }, error => {
-            console.log(error);
-            this.isLoading = false;
-        });
+        this.authenticationObservable = this.authService.login(email, password);
+        this.handleResponse();
     }
 
     onReset(){
         this.loginForm.reset();
+    }
+
+    private handleResponse(){
+        this.authenticationObservable.subscribe(response => {
+            console.log(response);
+            this.isLoading = false;
+        }, errorMessage => {
+            this.errorMessage = errorMessage;
+            this.isLoading = false;
+        });
     }
 }
