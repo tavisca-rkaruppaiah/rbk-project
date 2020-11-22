@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 import { ReciepeDetailComponent } from './reciepe-detail/reciepe-detail.component';
 import { ReciepeEditComponent } from './reciepe-edit/reciepe-edit.component';
@@ -22,9 +22,9 @@ import { ReciepesComponent } from './reciepes.component';
     ],
     imports:[
         RouterModule,
-        CommonModule,
         ReactiveFormsModule,
-        ReciepesRoutingModule
+        ReciepesRoutingModule,
+        SharedModule
     ],
     exports:[
         ReciepesComponent,
