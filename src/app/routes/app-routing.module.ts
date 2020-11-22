@@ -7,10 +7,11 @@ import { ReciepeDetailComponent } from '../reciepes/reciepe-detail/reciepe-detai
 import { ReciepeEditComponent } from '../reciepes/reciepe-edit/reciepe-edit.component';
 import { ReciepeResolverService } from '../reciepes/services/reciepe-resolver.service';
 import { LoginComponent } from '../login/login.component';
+import { AuthGuardSerive } from '../services/auth-guard.service';
 
 const routes : Route[] = [
     {path : '', redirectTo:'/reciepes', pathMatch:'full'},
-    {path : 'reciepes', component: ReciepesComponent, children:[
+    {path : 'reciepes', component: ReciepesComponent, canActivate:[AuthGuardSerive], children:[
         {path:'',component:ReciepeStartComponent},
         {path:'new', component:ReciepeEditComponent},
         {path:':id', component:ReciepeDetailComponent, resolve : [ReciepeResolverService]},
