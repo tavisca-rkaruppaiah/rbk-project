@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../contract/auth/auth-response.model';
 import { AuthService } from '../services/auth.service';
@@ -15,7 +16,7 @@ export class LoginComponent{
     authenticationObservable : Observable<AuthResponse>;
     @ViewChild("loginForm") loginForm : NgForm;
 
-    constructor(private authService : AuthService){}
+    constructor(private authService : AuthService, private router : Router){}
 
     onSwitchMode(){
         this.isLoginMode = !this.isLoginMode;
@@ -54,6 +55,7 @@ export class LoginComponent{
         this.authenticationObservable.subscribe(response => {
             console.log(response);
             this.isLoading = false;
+            this.router.navigate(['reciepes']);
         }, errorMessage => {
             this.errorMessage = errorMessage;
             this.isLoading = false;

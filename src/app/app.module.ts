@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +19,7 @@ import { ReciepeStartComponent } from './reciepes/reciepe-start/reciepe-start.co
 import { ReciepeEditComponent } from './reciepes/reciepe-edit/reciepe-edit.component';
 import { LoginComponent } from './login/login.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from '../app/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,15 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ReciepeService, ShoppingService],
+  providers: [
+    ReciepeService, 
+    ShoppingService, 
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass:AuthInterceptorService,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
