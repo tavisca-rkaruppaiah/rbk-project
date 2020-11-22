@@ -5,8 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/diectives/dropdown.directive';
 import { ReciepeService } from './reciepes/services/reciepe.service';
 import { ShoppingService } from './shopping-list/services/shopping.service';
@@ -15,13 +13,13 @@ import { LoginComponent } from './login/login.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from '../app/services/auth-interceptor.service';
 import { ReciepesModule } from './reciepes/reciepes.module';
+import { ShoppingsModule } from './shopping-list/shoppings.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
+    
     DropdownDirective,
     LoginComponent,
     LoadingSpinnerComponent
@@ -32,7 +30,8 @@ import { ReciepesModule } from './reciepes/reciepes.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReciepesModule
+    ReciepesModule,
+    ShoppingsModule
   ],
   providers: [
     ReciepeService, 
