@@ -5,35 +5,24 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ReciepesComponent } from './reciepes/reciepes.component';
-import { ReciepeListComponent } from './reciepes/reciepe-list/reciepe-list.component';
-import { ReciepeDetailComponent } from './reciepes/reciepe-detail/reciepe-detail.component';
-import { ReciepeItemComponent } from './reciepes/reciepe-list/reciepe-item/reciepe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/diectives/dropdown.directive';
 import { ReciepeService } from './reciepes/services/reciepe.service';
 import { ShoppingService } from './shopping-list/services/shopping.service';
 import { AppRoutingModule } from './routes/app-routing.module';
-import { ReciepeStartComponent } from './reciepes/reciepe-start/reciepe-start.component';
-import { ReciepeEditComponent } from './reciepes/reciepe-edit/reciepe-edit.component';
 import { LoginComponent } from './login/login.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from '../app/services/auth-interceptor.service';
+import { ReciepesModule } from './reciepes/reciepes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ReciepesComponent,
-    ReciepeListComponent,
-    ReciepeDetailComponent,
-    ReciepeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    ReciepeStartComponent,
-    ReciepeEditComponent,
     LoginComponent,
     LoadingSpinnerComponent
   ],
@@ -42,7 +31,8 @@ import { AuthInterceptorService } from '../app/services/auth-interceptor.service
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReciepesModule
   ],
   providers: [
     ReciepeService, 
