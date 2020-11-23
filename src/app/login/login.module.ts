@@ -11,7 +11,7 @@ import { LoginComponent } from './login.component';
         CommonModule,
         FormsModule,
         SharedModule,
-        RouterModule.forChild([{path:'login', component:LoginComponent}])
+        RouterModule.forChild([{path:'', component:LoginComponent}])
     ]
 })
 export class LoginModule{

@@ -8,7 +8,7 @@ import { ReciepesComponent } from './reciepes.component';
 import { ReciepeResolverService } from './services/reciepe-resolver.service';
 
 const routes : Route[]=[{
-    path : 'reciepes', 
+    path : '', 
     component: ReciepesComponent, 
     canActivate:[AuthGuardSerive], 
     children:[{
