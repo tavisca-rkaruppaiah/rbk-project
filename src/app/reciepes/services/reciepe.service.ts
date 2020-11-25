@@ -1,9 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { KeyStore } from 'src/app/keystore';
 import { Ingredient } from 'src/app/shared/model/ingredient.model';
-import { ShoppingService } from 'src/app/shopping-list/services/shopping.service';
 import { Reciepe } from '../model/reciepe.model';
+import * as ShoppingListActions from '../../shopping-list/store/shoppings.action';
+import * as fromApp from '../../store/app.reducer';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +32,9 @@ export class ReciepeService {
 
   private reciepes : Reciepe[] = [];
   reciepeChangedSubject = new Subject<Reciepe[]>();
-  constructor(private shoppingService : ShoppingService) { }
+  constructor(
+    private store: Store<fromApp.AppState>
+  ) { }
 
   setReciepes(reciepes : Reciepe[]){
     this.reciepes = reciepes;
@@ -42,7 +46,8 @@ export class ReciepeService {
   }
 
   addIngredientsToShoppingList(ingredients : Ingredient[]){
-    this.shoppingService.addIngredients(ingredients);
+    //this.shoppingService.addIngredients(ingredients);
+    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
   }
 
   getReciepe(id : number){
